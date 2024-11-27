@@ -1,14 +1,20 @@
 #ifndef RBT_H
 #define RBT_H
 typedef enum {RED, BLACK} Color;
-typedef struct {
-  struct RBNode* parent;
-  struct RBNode* left;
-  struct RBNode* right;
+typedef struct sRBNode{
+  struct sRBNode* parent;
+  struct sRBNode* left;
+  struct sRBNode* right;
   Color color;
-  int value;
+  int key;
 } RBNode;
 
-RBNode* createRBNode(int value);
+RBNode* createRBNode(int key);
 
+typedef struct{ RBNode* root;} RBTree;
+
+RBTree* createRBTree();
+
+void insertRBT(RBTree *rbtree, RBNode* z);
 #endif
+
