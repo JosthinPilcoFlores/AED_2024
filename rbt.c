@@ -42,3 +42,19 @@ void insertRBT(RBTree *t, RBNode *z){
   //rbInsertFixUp(t, z);
 }
 
+void leftRotate(RBTree* t, RBNode* x){
+  RBNode* y = x->right;
+  assert(y);
+  x->right = y->left;
+  if(y->left)
+    y->left->parent = x;
+  y->parent = x->parent;
+  if(!x->parent)
+    t->root = y;
+  else if(x == x->parent->left)
+    x->parent->left = y;
+  else
+    x->parent->right = y;
+  y->left = x;
+  x->parent = y;
+}

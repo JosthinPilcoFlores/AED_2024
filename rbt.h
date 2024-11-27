@@ -10,11 +10,9 @@ typedef struct sRBNode{
 } RBNode;
 
 RBNode* createRBNode(int key);
-
 typedef struct{ RBNode* root;} RBTree;
-
 RBTree* createRBTree();
-
 void insertRBT(RBTree *rbtree, RBNode* z);
+void leftRotate(RBTree* t, RBNode* x);
 #endif
 
