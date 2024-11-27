@@ -58,3 +58,15 @@ void leftRotate(RBTree* t, RBNode* x){
   y->left = x;
   x->parent = y;
 }
+
+void rightRotate(RBTree* t, RBNode* y){
+  RBNode* x = y->left;
+  assert(y);
+  y->left = x->right;
+  if(x->right)
+    x->right->parent = y;
+  x->parent = y->parent;
+  if(!y->parent)
+    t->root = x;
+  else if(y == y->parent->right)
+}
